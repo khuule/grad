@@ -1,0 +1,50 @@
+\documentclass[letter,12pt]{article}
+\usepackage[utf8]{inputenc}
+\input{/home/scout/univ/f21/preamble}
+\pdfsuppresswarningpagegroup=1
+\newcommand{\Author}{Kevin Le} 
+\newcommand{\Title}{Homework x}
+
+\author{\Author}
+\title{\Title}
+\titleformat{\subsection}[runin]
+    {\normalfont\normalsize\bfseries}
+    {Exercise \thesubsection.}{1em}{}
+\titleformat{\subsubsection}[runin]
+{\normalfont\normalsize}
+{(\alph{subsubsection})}{1em}{}
+
+\newcommand\subsectionbreak{\clearpage}
+\renewcommand{\subsectionmark}[1]{\markright{Exercise  \thesubsection }}
+
+\usepackage[margin=.75in,headheight=18pt,headsep=\baselineskip]{geometry}
+\begin{document}
+\maketitle
+\pagestyle{fancy}
+\fancyhead[L]{\Title}
+\fancyhead[R]{\rightmark}
+\subsection{} Verify that for all $\alpha,\beta\in \Z[i]$, $N(\alpha\beta)=N(\alpha)N(\beta)$, either by direct computation or by using the fact that $N(a+bi=(a+bi)(a-bi)$. Conclude that if $\alpha\mid\gamma$ in $\Z[i]$, then $N(\alpha)\mid N(\gamma)$ in $\Z$.
+\begin{proof}
+    Writing $\alpha=a+bi$ and $\beta=c+di$, we have
+    \begin{align*}
+        N(\alpha\beta)&=N((a+bi)(c+di))\\
+                      &=N((ac-bd)+(ab+cd)i)\\
+                      &=(ac-bd)^2+(ab+cd)^2\\
+                      &=a^2c^2-2abcd+b^2d^2+a^2b^2+2abcd+c^2d^2\\
+                      &=a^2c^2+b^2d^2+a^2b^2+c^2d^2\\
+                      &=(a^2+b^2)(c^2+d^2)\\
+                      &=N(\alpha)N(\beta).
+    \end{align*}
+    If $\alpha\mid \gamma$ in $\Z[i]$, then for some $\beta$, $\alpha\beta=\gamma$. Hence, $N(\gamma)=N(\alpha\beta)=N(\alpha)N(\beta)$ which means $N(\alpha)\mid N(\gamma)$.
+\end{proof}
+
+\subsection{} Let $\alpha\in \Z[i]$. Show that $\alpha$ is a unit iff $N(\alpha)=1$. Conclude that the only units are $\pm1$ and $\pm i$.
+\begin{proof}
+    If is a unit, then for some $\alpha ^{-1}\in \Z[i]$, we have $\alpha \alpha^{-1}=1$. Hence $N(\alpha\alpha^{-1})=1$ and by exercise $1$, this implies that $N(\alpha)N(\alpha^{-1})=1$. Since the range of $N$ is $\Z$, we have $N(\alpha)=\pm1$. Writing $\alpha=a^2+b^2$, this means $a=\pm 1$ and $b=0$ or $a=0$ and $b=\pm 1$.
+\end{proof}
+
+\subsection{} Let $\alpha\in \Z[i]$. Show that if $N(\alpha)$ is a prime in $\Z$ then $\alpha$ is irreducible in $\Z[i]$. Show that the same conclusion holds if $N(\alpha)=p^2$, where $p$ is a prime in $\Z$, $p\equiv 3\gmod{4}$.
+\begin{proof}
+    Suppose $N(\alpha)$ is a prime in $\Z$ and $\alpha$ is not irreducible in $\Z[i]$. Then, we have $\alpha=\beta\gamma$ for $\beta,\gamma\in \Z[i]$ with $N(\beta)\ne 1$ and $N(\gamma)\ne 1$. By Exercise 1 again, this implies that $N(\beta)N(\gamma)=p$. Since $p$ is prime this implies that $N(\beta)=p$ and $N(\gamma)=1$ or $N(\beta)=1$ and $N(\gamma)=p$. This is a contradiction.
+\end{proof}
+\end{document}

@@ -1,0 +1,31 @@
+\documentclass[letter,12pt]{article}
+\usepackage[utf8]{inputenc}
+\input{/home/scout/univ/f21/preamble}
+\pdfsuppresswarningpagegroup=1
+\newcommand{\Author}{Kevin Le} 
+\newcommand{\Title}{Homework x}
+
+\author{\Author}
+\title{\Title}
+\titleformat{\subsection}[runin]
+    {\normalfont\normalsize\bfseries}
+    {Exercise \thesubsection.}{1em}{}
+\titleformat{\subsubsection}[runin]
+{\normalfont\normalsize}
+{(\alph{subsubsection})}{1em}{}
+
+\newcommand\subsectionbreak{\clearpage}
+\renewcommand{\subsectionmark}[1]{\markright{Exercise  \thesubsection }}
+
+\usepackage[margin=.75in,headheight=18pt,headsep=\baselineskip]{geometry}
+\begin{document}
+\maketitle
+\pagestyle{fancy}
+\fancyhead[L]{\Title}
+\fancyhead[R]{\rightmark}
+\setcounter{section}{2}
+\subsection{} Prove that if $f\colon \R^n\to \R^m$ is differentiable at $a\in \R^n$, then it is continuous at $a$.
+\begin{proof}
+    
+\end{proof}
+\end{document}
